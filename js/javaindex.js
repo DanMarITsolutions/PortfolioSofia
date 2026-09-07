@@ -315,8 +315,17 @@ function iniciarFormularioContacto() {
     }
   });
 
-  formulario.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  async function enviarFormulario(event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+    }
+
+    if (!formulario.checkValidity()) {
+      formulario.reportValidity();
+      return;
+    }
 
     const datosFormulario = new FormData(formulario);
 
@@ -366,7 +375,11 @@ function iniciarFormularioContacto() {
       botonEnviar.disabled = false;
       textoBoton.textContent = "Enviar mensaje";
     }
-  });
+  }
+
+  botonEnviar.addEventListener("click", enviarFormulario);
+
+  formulario.addEventListener("submit", enviarFormulario);
 }
 
 async function iniciarPagina() {

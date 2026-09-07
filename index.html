@@ -611,259 +611,267 @@
 
     <!-- CONTACTO -->
     <section class="contact" id="contacto">
-      <div class="container contact-content">
-        <p class="eyebrow">Contacto</p>
+  <div class="container contact-content">
+    <p class="eyebrow">Contacto</p>
 
-        <h2 class="reveal">
-          Hablemos de un<br>
-          próximo <em>proyecto.</em>
-        </h2>
+    <h2 class="reveal">
+      Hablemos de un<br>
+      próximo <em>proyecto.</em>
+    </h2>
 
-        <!-- Correo directo -->
-        <a
-          href="mailto:sofia.15zg@gmail.com"
-          class="contact-email"
-        >
-          sofia.15zg@gmail.com
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <!-- FORMULARIO WEB3FORMS -->
-        <form
-          class="contact-form"
-          id="contact-form"
-          action="https://api.web3forms.com/submit"
-          method="POST"
-        >
-          <!-- Access Key Web3Forms -->
-          <input
-            type="hidden"
-            name="access_key"
-            value="cedfbb47-46ba-4e9e-8e77-8da3878f9050"
-          >
-
-          <!-- Configuración del correo -->
-          <input
-            type="hidden"
-            name="subject"
-            value="Nuevo mensaje desde el portfolio de Sofía Zoilog"
-          >
-
-          <input
-            type="hidden"
-            name="from_name"
-            value="Portfolio de Sofía Zoilog"
-          >
-
-          <!-- Campo antispam oculto -->
-          <input
-            type="checkbox"
-            name="botcheck"
-            class="form-botcheck"
-            tabindex="-1"
-            autocomplete="off"
-          >
-
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="nombre">Nombre</label>
-
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                required
-                autocomplete="name"
-                placeholder="Tu nombre"
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="email">Email</label>
-
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email"
-                placeholder="tuemail@ejemplo.com"
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="telefono">Teléfono</label>
-
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                autocomplete="tel"
-                placeholder="+34 600 000 000"
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="tipo-proyecto">Tipo de proyecto</label>
-
-              <div class="select-wrapper">
-                <select
-                  id="tipo-proyecto"
-                  name="tipo_proyecto"
-                  required
-                >
-                  <option value="" disabled selected>
-                    Selecciona una opción
-                  </option>
-
-                  <option value="Vivienda unifamiliar">
-                    Vivienda unifamiliar
-                  </option>
-
-                  <option value="Vivienda colectiva">
-                    Vivienda colectiva
-                  </option>
-
-                  <option value="Reforma">
-                    Reforma
-                  </option>
-
-                  <option value="Rehabilitación">
-                    Rehabilitación
-                  </option>
-
-                  <option value="Patrimonio e intervención">
-                    Patrimonio e intervención
-                  </option>
-
-                  <option value="Interiorismo">
-                    Interiorismo
-                  </option>
-
-                  <option value="Dirección de obra">
-                    Dirección de obra
-                  </option>
-
-                  <option value="Otro">
-                    Otro
-                  </option>
-                </select>
-
-                <span class="select-arrow" aria-hidden="true">↓</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-field form-field-full">
-            <label for="mensaje">Cuéntame tu proyecto</label>
-
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              rows="5"
-              required
-              placeholder="Describe brevemente el proyecto, la ubicación, las necesidades y el plazo aproximado."
-            ></textarea>
-          </div>
-
-          <div class="form-bottom">
-            <button
-              type="submit"
-              class="form-submit"
-              id="form-submit"
-            >
-              <span class="form-submit-text">
-                Enviar mensaje
-              </span>
-
-              <span aria-hidden="true">↗</span>
-            </button>
-
-            <p
-              class="form-status"
-              id="form-status"
-              role="status"
-              aria-live="polite"
-            ></p>
-          </div>
-        </form>
-
-        <div
-  class="form-modal"
-  id="form-modal"
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="form-modal-title"
-  aria-hidden="true"
->
-  <div class="form-modal-backdrop" id="form-modal-backdrop"></div>
-
-  <div class="form-modal-content">
-    <button
-      class="form-modal-close"
-      id="form-modal-close"
-      type="button"
-      aria-label="Cerrar mensaje"
+    <!-- Correo directo -->
+    <a
+      href="mailto:sofia.15zg@gmail.com"
+      class="contact-email"
     >
-      ×
-    </button>
-
-    <p class="form-modal-label">Mensaje enviado</p>
-
-    <h3 id="form-modal-title">
-      Gracias por<br>
-      contactar.
-    </h3>
-
-    <p>
-      Tu mensaje se ha enviado correctamente. Recibirás una respuesta
-      lo antes posible.
-    </p>
-
-    <button
-      class="form-modal-button"
-      id="form-modal-button"
-      type="button"
-    >
-      Volver al portfolio
+      sofia.15zg@gmail.com
       <span aria-hidden="true">↗</span>
-    </button>
-  </div>
-</div>
+    </a>
 
-        <!-- INFORMACIÓN DE CONTACTO -->
-        <div class="contact-details">
-          <div>
-            <p class="contact-label">Ubicación</p>
+    <!-- FORMULARIO WEB3FORMS -->
+    <form
+      class="contact-form"
+      id="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      onsubmit="return false;"
+    >
+      <!-- Access Key de Web3Forms -->
+      <input
+        type="hidden"
+        name="access_key"
+        value="cedfbb47-46ba-4e9e-8e77-8da3878f9050"
+      >
 
-            <p>
-              Sevilla<br>
-              Andalucía, España
-            </p>
-          </div>
+      <!-- Configuración del email -->
+      <input
+        type="hidden"
+        name="subject"
+        value="Nuevo mensaje desde el portfolio de Sofía Zoilog"
+      >
 
-          <div>
-            <p class="contact-label">Teléfono</p>
+      <input
+        type="hidden"
+        name="from_name"
+        value="Portfolio de Sofía Zoilog"
+      >
 
-            <a href="tel:+34626566502">
-              +34 626 56 65 02
-            </a>
-          </div>
+      <!-- Campo antispam oculto -->
+      <input
+        type="checkbox"
+        name="botcheck"
+        class="form-botcheck"
+        tabindex="-1"
+        autocomplete="off"
+      >
 
-          <div>
-            <p class="contact-label">Redes</p>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="nombre">Nombre</label>
 
-            <a
-              href="https://www.linkedin.com/in/sof%C3%ADa-zg-61b120356/"
-              target="_blank"
-              rel="noopener noreferrer"
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            autocomplete="name"
+            placeholder="Tu nombre"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="tuemail@ejemplo.com"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="telefono">Teléfono</label>
+
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            autocomplete="tel"
+            placeholder="+34 600 000 000"
+          >
+        </div>
+
+        <div class="form-field">
+          <label for="tipo-proyecto">Tipo de proyecto</label>
+
+          <div class="select-wrapper">
+            <select
+              id="tipo-proyecto"
+              name="tipo_proyecto"
+              required
             >
-              LinkedIn
-            </a>
+              <option value="" disabled selected>
+                Selecciona una opción
+              </option>
+
+              <option value="Vivienda unifamiliar">
+                Vivienda unifamiliar
+              </option>
+
+              <option value="Vivienda colectiva">
+                Vivienda colectiva
+              </option>
+
+              <option value="Reforma">
+                Reforma
+              </option>
+
+              <option value="Rehabilitación">
+                Rehabilitación
+              </option>
+
+              <option value="Patrimonio e intervención">
+                Patrimonio e intervención
+              </option>
+
+              <option value="Interiorismo">
+                Interiorismo
+              </option>
+
+              <option value="Dirección de obra">
+                Dirección de obra
+              </option>
+
+              <option value="Otro">
+                Otro
+              </option>
+            </select>
+
+            <span class="select-arrow" aria-hidden="true">↓</span>
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="form-field form-field-full">
+        <label for="mensaje">Cuéntame tu proyecto</label>
+
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          required
+          placeholder="Describe brevemente el proyecto, la ubicación, las necesidades y el plazo aproximado."
+        ></textarea>
+      </div>
+
+      <div class="form-bottom">
+        <!-- Importante: type button, nunca type submit -->
+        <button
+          type="button"
+          class="form-submit"
+          id="form-submit"
+        >
+          <span class="form-submit-text">
+            Enviar mensaje
+          </span>
+
+          <span aria-hidden="true">↗</span>
+        </button>
+
+        <p
+          class="form-status"
+          id="form-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </div>
+    </form>
+
+    <!-- POPUP DE MENSAJE ENVIADO -->
+    <div
+      class="form-modal"
+      id="form-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="form-modal-title"
+      aria-hidden="true"
+    >
+      <div
+        class="form-modal-backdrop"
+        id="form-modal-backdrop"
+      ></div>
+
+      <div class="form-modal-content">
+        <button
+          class="form-modal-close"
+          id="form-modal-close"
+          type="button"
+          aria-label="Cerrar mensaje"
+        >
+          ×
+        </button>
+
+        <p class="form-modal-label">
+          Mensaje enviado
+        </p>
+
+        <h3 id="form-modal-title">
+          Gracias por<br>
+          contactar.
+        </h3>
+
+        <p>
+          Tu mensaje se ha enviado correctamente. Recibirás una respuesta
+          lo antes posible.
+        </p>
+
+        <button
+          class="form-modal-button"
+          id="form-modal-button"
+          type="button"
+        >
+          Volver al portfolio
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <div class="contact-details">
+      <div>
+        <p class="contact-label">Ubicación</p>
+
+        <p>
+          Sevilla<br>
+          Andalucía, España
+        </p>
+      </div>
+
+      <div>
+        <p class="contact-label">Teléfono</p>
+
+        <a href="tel:+34626566502">
+          +34 626 56 65 02
+        </a>
+      </div>
+
+      <div>
+        <p class="contact-label">Redes</p>
+
+        <a
+          href="https://www.linkedin.com/in/sof%C3%ADa-zg-61b120356/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
   </main>
 
   <!-- Footer cargado desde componentes/footer.html -->
