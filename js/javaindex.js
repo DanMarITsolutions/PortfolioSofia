@@ -254,6 +254,63 @@ function iniciarPlanoInteractivo() {
   });
 }
 
+function iniciarFormularioContacto() {
+  const formulario = document.querySelector("#contact-form");
+  const estadoFormulario = document.querySelector("#form-status");
+  const botonEnviar = document.querySelector("#form-submit");
+  const textoBoton = document.querySelector(".form-submit-text");
+
+  if (!formulario || !estadoFormulario || !botonEnviar || !textoBoton) {
+    return;
+  }
+
+  formulario.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const datosFormulario = new FormData(formulario);
+
+    botonEnviar.disabled = true;
+    textoBoton.textContent = "Enviando...";
+    estadoFormulario.textContent = "";
+    estadoFormulario.className = "form-status";
+
+    try {
+      const respuesta = await fetch(formulario.action, {
+        method: "POST",
+        body: datosFormulario,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      const resultado = await respuesta.json();
+
+      if (resultado.success) {
+        estadoFormulario.textContent =
+          "Mensaje enviado correctamente. Te responderé lo antes posible.";
+
+        estadoFormulario.classList.add("success");
+
+        formulario.reset();
+      } else {
+        throw new Error(
+          resultado.message || "No se ha podido enviar el formulario."
+        );
+      }
+    } catch (error) {
+      console.error(error);
+
+      estadoFormulario.textContent =
+        "No se ha podido enviar el mensaje. Inténtalo de nuevo o escribe directamente al correo electrónico.";
+
+      estadoFormulario.classList.add("error");
+    } finally {
+      botonEnviar.disabled = false;
+      textoBoton.textContent = "Enviar mensaje";
+    }
+  });
+}
+
 async function iniciarPagina() {
   await cargarComponente(
     "navbar-container",
@@ -269,6 +326,23 @@ async function iniciarPagina() {
   iniciarFooter();
   iniciarAnimaciones();
   iniciarPlanoInteractivo();
+  async function iniciarPagina() {
+  await cargarComponente(
+    "navbar-container",
+    "componentes/navbar.html"
+  );
+
+  await cargarComponente(
+    "footer-container",
+    "componentes/footer.html"
+  );
+
+  iniciarNavbar();
+  iniciarFooter();
+  iniciarAnimaciones();
+  iniciarPlanoInteractivo();
+  iniciarFormularioContacto();
+}
 }
 
 document.addEventListener("DOMContentLoaded", iniciarPagina);
