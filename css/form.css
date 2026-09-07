@@ -1,0 +1,148 @@
+/* -------------------------
+   FORMULARIO DE CONTACTO
+------------------------- */
+
+.contact-form {
+  border-top: 1px solid var(--color-line-light);
+  margin-top: 90px;
+  max-width: 720px;
+  padding-top: 30px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 34px 40px;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 34px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-field-full {
+  margin-bottom: 34px;
+}
+
+.form-field label {
+  color: #999999;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-line-light);
+  color: var(--color-light);
+  font-family: var(--font-main);
+  font-size: 15px;
+  padding: 8px 0;
+  transition: border-color var(--transition);
+  width: 100%;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #6d6d6d;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-bottom-color: var(--color-light);
+  outline: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 22px;
+}
+
+.form-field select option {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.select-arrow {
+  bottom: 10px;
+  color: var(--color-gray);
+  font-size: 13px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.form-submit {
+  align-items: center;
+  border-bottom: 1px solid var(--color-line-light);
+  color: var(--color-light);
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 13px;
+  padding-bottom: 8px;
+  transition: opacity var(--transition);
+}
+
+.form-submit span {
+  font-size: 18px;
+  transition: transform var(--transition);
+}
+
+.form-submit:hover {
+  opacity: 0.6;
+}
+
+.form-submit:hover span {
+  transform: translate(3px, 3px);
+}
+
+.form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.form-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  margin-top: 16px;
+  min-height: 14px;
+}
+
+.form-status.success {
+  color: #9fd6a8;
+}
+
+.form-status.error {
+  color: #e2938f;
+}
+
+@media (max-width: 650px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .contact-form {
+    margin-top: 60px;
+  }
+}

@@ -688,14 +688,7 @@ em {
   grid-template-columns: 1fr 1fr;
 }
 
-.studio-image {
-  height: min(52vw, 700px);
-  overflow: hidden;
-}
 
-.studio-image img {
-  filter: grayscale(100%);
-}
 
 .studio-content {
   max-width: 540px;
@@ -716,7 +709,259 @@ em {
 .studio-content .text-link {
   margin-top: 22px;
 }
+/* -------------------------
+   PLANO INTERACTIVO
+------------------------- */
 
+.studio-plan {
+  background-color: #efede8;
+  border: 1px solid rgba(22, 22, 22, 0.14);
+  min-height: min(52vw, 700px);
+  padding: 22px;
+  position: relative;
+}
+
+.plan-top {
+  align-items: center;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.14);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.plan-title,
+.plan-scale,
+.plan-instruction {
+  color: var(--color-gray);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.plan-scale {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.plan-scale span {
+  background-color: var(--color-dark);
+  display: inline-block;
+  height: 1px;
+  width: 30px;
+}
+
+.plan-canvas {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 570px;
+  position: relative;
+}
+
+.architectural-plan {
+  height: auto;
+  max-height: 580px;
+  overflow: visible;
+  width: 100%;
+}
+
+.plan-outline,
+.wall {
+  fill: none;
+  stroke: var(--color-dark);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.space-fill {
+  fill: transparent;
+  cursor: pointer;
+  transition: fill 0.35s ease;
+}
+
+.plan-space:hover .space-fill,
+.plan-space.active .space-fill,
+.plan-space:focus .space-fill {
+  fill: rgba(22, 22, 22, 0.08);
+  outline: none;
+}
+
+.plan-space:focus {
+  outline: none;
+}
+
+.plan-space:focus .wall {
+  stroke-width: 4;
+}
+
+.patio-fill {
+  fill: rgba(22, 22, 22, 0.025);
+}
+
+.door,
+.door-line,
+.furniture,
+.furniture-line,
+.shelf,
+.shelf-line,
+.meeting-table,
+.chair,
+.tree,
+.tree-inner,
+.patio-line {
+  fill: none;
+  stroke: #5f5f5f;
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+}
+
+.tree {
+  fill: rgba(22, 22, 22, 0.04);
+}
+
+.tree-inner {
+  fill: rgba(22, 22, 22, 0.08);
+}
+
+.window-line {
+  stroke: var(--color-dark);
+  stroke-width: 6;
+  vector-effect: non-scaling-stroke;
+}
+
+.space-label {
+  fill: var(--color-dark);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+}
+
+.space-sub-label {
+  fill: var(--color-gray);
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.07em;
+  text-anchor: middle;
+}
+
+.north-symbol {
+  fill: var(--color-dark);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-anchor: middle;
+}
+
+.north-symbol path {
+  fill: var(--color-dark);
+}
+
+.north-symbol line {
+  stroke: var(--color-dark);
+  stroke-width: 1;
+}
+
+.technical-text {
+  fill: var(--color-gray);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+
+.technical-text-right {
+  text-anchor: end;
+}
+
+.plan-info {
+  align-items: flex-start;
+  background-color: var(--color-dark);
+  bottom: 0;
+  color: var(--color-light);
+  display: flex;
+  gap: 15px;
+  left: 0;
+  max-width: 310px;
+  opacity: 0;
+  padding: 17px;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.plan-info.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plan-info-number {
+  color: #9b9b9b;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.plan-info-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 5px;
+}
+
+.plan-info-text {
+  color: #c8c8c8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.plan-instruction {
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  padding-top: 14px;
+}
+
+/* Plano responsive */
+@media (max-width: 900px) {
+  .studio-plan {
+    min-height: auto;
+  }
+
+  .plan-canvas {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 650px) {
+  .studio-plan {
+    padding: 15px;
+  }
+
+  .plan-canvas {
+    min-height: auto;
+    padding: 30px 0 85px;
+  }
+
+  .architectural-plan {
+    max-height: none;
+  }
+
+  .plan-info {
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .space-label {
+    font-size: 9px;
+  }
+
+  .space-sub-label,
+  .technical-text {
+    font-size: 6px;
+  }
+}
 /* -------------------------
    FRASE
 ------------------------- */
@@ -1139,5 +1384,329 @@ html.animations-ready .reveal.visible {
     align-items: flex-start;
     flex-direction: column;
     gap: 18px;
+  }
+}
+/* -------------------------
+   VISOR DE PDF
+------------------------- */
+
+.pdf-page {
+  background-color: var(--color-light);
+}
+
+.pdf-viewer-section {
+  min-height: 100vh;
+  padding: 170px 0 100px;
+}
+
+.pdf-viewer-header {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+
+.pdf-viewer-header h1 {
+  margin-top: 20px;
+}
+
+.pdf-project-data {
+  border-bottom: 1px solid var(--color-line);
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 28px;
+  padding: 15px 0;
+}
+
+.pdf-project-data p {
+  color: var(--color-gray);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pdf-project-data p:nth-child(2) {
+  text-align: center;
+}
+
+.pdf-project-data p:last-child {
+  text-align: right;
+}
+
+.pdf-actions {
+  align-items: center;
+  display: flex;
+  gap: 25px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.pdf-actions .button-outline {
+  min-width: 255px;
+}
+
+.pdf-download-link {
+  border-bottom: 1px solid var(--color-dark);
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  gap: 10px;
+  letter-spacing: 0.05em;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+  transition: opacity var(--transition);
+}
+
+.pdf-download-link:hover {
+  opacity: 0.55;
+}
+
+.pdf-container {
+  background-color: #dedbd4;
+  border: 1px solid var(--color-line);
+  height: 82vh;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.pdf-container object {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.pdf-fallback {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100%;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.pdf-fallback p {
+  color: var(--color-gray);
+  max-width: 330px;
+}
+
+@media (max-width: 650px) {
+  .pdf-viewer-section {
+    padding: 125px 0 60px;
+  }
+
+  .pdf-viewer-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 35px;
+  }
+
+  .pdf-project-data {
+    gap: 12px;
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-project-data p,
+  .pdf-project-data p:nth-child(2),
+  .pdf-project-data p:last-child {
+    text-align: left;
+  }
+
+  .pdf-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pdf-actions .button-outline {
+    width: 100%;
+  }
+
+  .pdf-download-link {
+    justify-content: space-between;
+  }
+
+  .pdf-container {
+    height: 68vh;
+    min-height: 500px;
+  }
+}
+/* -------------------------
+   PLANO REAL INTERACTIVO
+------------------------- */
+
+.market-plan {
+  background-color: #efede8;
+  border: 1px solid rgba(22, 22, 22, 0.16);
+  min-height: min(52vw, 700px);
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+.market-plan-header {
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.16);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 14px;
+}
+
+.market-plan-label,
+.market-plan-scale,
+.market-plan-footer {
+  color: var(--color-gray);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.market-plan-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-top: 4px;
+}
+
+.market-plan-scale {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.market-plan-scale span {
+  background-color: var(--color-dark);
+  display: inline-block;
+  height: 1px;
+  width: 25px;
+}
+
+.market-plan-canvas {
+  aspect-ratio: 590 / 650;
+  background-color: #f6f5f1;
+  margin: 20px 0 14px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.market-plan-svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.real-plan-space {
+  cursor: pointer;
+  fill: rgba(226, 65, 58, 0);
+  stroke: rgba(226, 65, 58, 0);
+  stroke-width: 2;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.real-plan-space:hover,
+.real-plan-space.active,
+.real-plan-space:focus {
+  fill: rgba(226, 65, 58, 0.22);
+  outline: none;
+  stroke: rgba(186, 36, 32, 0.95);
+  stroke-width: 3;
+}
+
+.market-plan-info {
+  align-items: flex-start;
+  background-color: #1a1a1a;
+  bottom: 0;
+  color: var(--color-light);
+  display: flex;
+  gap: 15px;
+  left: 0;
+  max-width: 340px;
+  opacity: 0;
+  padding: 17px;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(14px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: 3;
+}
+
+.market-plan-info.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.market-plan-info-number {
+  color: #a2a2a2;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.market-plan-info-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin-bottom: 5px;
+}
+
+.market-plan-info-text {
+  color: #c8c8c8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.market-plan-footer {
+  border-top: 1px solid rgba(22, 22, 22, 0.16);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+}
+
+.market-plan-footer p:last-child {
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .market-plan {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .market-plan {
+    padding: 14px;
+  }
+
+  .market-plan-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .market-plan-scale {
+    align-self: flex-start;
+  }
+
+  .market-plan-canvas {
+    margin: 14px 0;
+  }
+
+  .market-plan-info {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .market-plan-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .market-plan-footer p:last-child {
+    text-align: left;
   }
 }

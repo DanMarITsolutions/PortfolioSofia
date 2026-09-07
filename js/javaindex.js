@@ -137,6 +137,123 @@ function iniciarAnimaciones() {
   });
 }
 
+function iniciarPlanoInteractivo() {
+  const zonasPlano = document.querySelectorAll(".real-plan-space");
+
+  const panelInfo = document.querySelector("#market-plan-info");
+  const numeroInfo = document.querySelector(
+    "#market-plan-info-number"
+  );
+  const tituloInfo = document.querySelector(
+    "#market-plan-info-title"
+  );
+  const textoInfo = document.querySelector(
+    "#market-plan-info-text"
+  );
+
+  if (
+    zonasPlano.length === 0 ||
+    !panelInfo ||
+    !numeroInfo ||
+    !tituloInfo ||
+    !textoInfo
+  ) {
+    return;
+  }
+
+  const informacionZonas = {
+    market: {
+      numero: "01",
+      titulo: "Mercado",
+      texto:
+        "Espacio principal destinado a la actividad comercial. La distribución organiza los puestos, los recorridos interiores y las relaciones visuales entre las distintas áreas."
+    },
+
+    access: {
+      numero: "02",
+      titulo: "Acceso principal",
+      texto:
+        "Punto de entrada al mercado. Esta zona articula la llegada desde el espacio urbano y organiza la transición hacia el interior del edificio."
+    },
+
+    vestibule: {
+      numero: "03",
+      titulo: "Vestíbulo",
+      texto:
+        "Área de distribución situada junto al acceso. Permite orientar al visitante y conectar el acceso principal con los recorridos interiores del mercado."
+    },
+
+    "cold-rooms": {
+      numero: "04",
+      titulo: "Cámaras frigoríficas",
+      texto:
+        "Zona técnica destinada a la conservación de productos. Se ubica en una posición funcional respecto al área comercial y a los servicios del mercado."
+    },
+
+    toilets: {
+      numero: "05",
+      titulo: "Aseos",
+      texto:
+        "Núcleo de servicios integrado en la planta baja y dispuesto para facilitar el acceso tanto a usuarios como al personal del mercado."
+    },
+
+    "changing-rooms": {
+      numero: "06",
+      titulo: "Vestuarios",
+      texto:
+        "Espacio de apoyo destinado al personal. Se relaciona con las zonas de servicio y las instalaciones del edificio."
+    },
+
+    ventilation: {
+      numero: "07",
+      titulo: "Instalación de ventilación",
+      texto:
+        "Área técnica destinada a los sistemas de ventilación necesarios para garantizar las condiciones ambientales y de funcionamiento del mercado."
+    },
+
+    electricity: {
+      numero: "08",
+      titulo: "Instalación eléctrica",
+      texto:
+        "Espacio técnico para la infraestructura eléctrica del edificio, situado junto a otras áreas de apoyo y mantenimiento."
+    }
+  };
+
+  function mostrarInformacion(zona) {
+    const idZona = zona.dataset.space;
+    const informacion = informacionZonas[idZona];
+
+    if (!informacion) {
+      return;
+    }
+
+    zonasPlano.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    zona.classList.add("active");
+
+    numeroInfo.textContent = informacion.numero;
+    tituloInfo.textContent = informacion.titulo;
+    textoInfo.textContent = informacion.texto;
+
+    panelInfo.classList.add("visible");
+  }
+
+  zonasPlano.forEach((zona) => {
+    zona.addEventListener("click", () => {
+      mostrarInformacion(zona);
+    });
+
+    zona.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        mostrarInformacion(zona);
+      }
+    });
+  });
+}
+
 async function iniciarPagina() {
   await cargarComponente(
     "navbar-container",
@@ -151,6 +268,7 @@ async function iniciarPagina() {
   iniciarNavbar();
   iniciarFooter();
   iniciarAnimaciones();
+  iniciarPlanoInteractivo();
 }
 
 document.addEventListener("DOMContentLoaded", iniciarPagina);
